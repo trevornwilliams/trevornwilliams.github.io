@@ -1,4 +1,4 @@
-# Film & TV Professional
+# Trevor Neil Williams
 
 ## Work Experience
 
@@ -9,12 +9,10 @@
 - Processed invoices, expense reports, and POs, ensuring adherence to budgets
 - Analyzed existing workflows and improved efficiency across departments
 
-
 ## Education
 
 - Columbia College Chicago | Bachelor of Arts - Film & Video // Chicago, IL // 2010
 - Pasadena City College | Certificate - Cybersecurity // Pasadena, CA // 2022
-
 
 ## Skills
 
@@ -23,7 +21,6 @@
 - Operating Systems: macOS // Windows // CentOS // Ubuntu Server // Kali
 
 - Programming Languages: Python // Java // Javascript // SQL
-
 
 ## Websites
 
