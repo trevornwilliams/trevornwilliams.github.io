@@ -1,20 +1,16 @@
 
 :root {
-  --primarybright: #dfdfdf;
+  --primarybright: #dfdfdf75;
 
   --white: #ffffff;
 
-  --graygradient: rgba(255, 255, 255, 0.816);
+  --black: #000000;
   
-  --darklightwhite: rgba(1, 1, 1, 0.72);
-
   --bodypanel: rgba(1, 1, 1, 0.344);
 
   --lightwhite: rgba(255, 255, 255, 0.08);
 
 }
-
-
 
 .housingTheme1{
   font-family: "Open Sans", sans-serif;
@@ -24,7 +20,6 @@
 }
 
 .housingTheme1::before{
-
   content: "";
   position: fixed;
   background: #000000;
@@ -39,7 +34,7 @@
 
 .housingTheme2{
   font-family: "Open Sans", sans-serif;
-  color: var(--white);
+  color: var(--black);
   position: relative;
   background: transparent;
 }
@@ -67,7 +62,7 @@
 }
 
 a {
-  color: var(--primarybright);
+  color: var(--white);
 }
 
 a:hover {
@@ -114,12 +109,12 @@ h1, h2, h3, h4, h5, h6 {
 #header h2 {
   font-size: 24px;
   margin-top: 20px;
-  color: var(--graygradient);
+  color: var(--white);
 }
 
 #header h2 span {
   color: var(--white);;
-  border-bottom: 2px solid var(--primarybright);
+  border-bottom: 2px solid;
   padding-bottom: 6px;
 }
 
@@ -191,7 +186,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a {
   display: block;
   position: relative;
-  color: var(--graygradient);
+
   font-size: 16px;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -204,7 +199,6 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: var(--primarybright);
   visibility: hidden;
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
@@ -216,7 +210,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: var(--white);;
+
   text-decoration: none;
 }
 
@@ -248,7 +242,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 15px;
   z-index: 9999;
   overflow-y: auto;
-  background: var(--darklightwhite);
+  background: var(--black);
   transition: ease-in-out 0.2s;
   opacity: 0.9;
   visibility: hidden;
@@ -273,7 +267,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
-  color: var(--primarybright);
+
   text-decoration: none;
 }
 
@@ -310,7 +304,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   top: 0;
   right: 0;
-  background: var(--darklightwhite);
+
 }
 
 #header.header-top .social-links, #header.header-top h2 {
@@ -362,7 +356,6 @@ section.section-show {
 }
 
 section .container {
-  background: var(--darklightwhite);
   padding: 30px;
 }
 
@@ -383,7 +376,7 @@ section .container {
   margin: 0 0 20px 0;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--graygradient);
+
   font-family: "Poppins", sans-serif;
 }
 
@@ -392,7 +385,7 @@ section .container {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: var(--primarybright);
+
   margin: 4px 10px;
 }
 
@@ -412,7 +405,6 @@ section .container {
 .about-me .content h3 {
   font-weight: 700;
   font-size: 26px;
-  color: var(--primarybright);
 }
 
 .about-me .content ul {
@@ -427,77 +419,13 @@ section .container {
 .about-me .content ul i {
   font-size: 20px;
   padding-right: 2px;
-  color: var(--primarybright);
 }
 
 .about-me .content p:last-child {
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Skills
---------------------------------------------------------------*/
-.skills .progress {
-  height: 50px;
-  display: block;
-  background: none;
-}
 
-.skills .progress .skill {
-  padding: 10px 0;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  display: block;
-  font-weight: 600;
-  font-family: "Poppins", sans-serif;
-  color: var(--white);;
-}
-
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
-}
-
-.skills .progress-bar-wrap {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: .9s;
-  background-color: var(--primarybright);
-}
-
-/*--------------------------------------------------------------
-# Interests
---------------------------------------------------------------*/
-.interests .icon-box {
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  background: var(--lightwhite);
-  transition: ease-in-out 0.3s;
-}
-
-.interests .icon-box i {
-  font-size: 32px;
-  padding-right: 10px;
-  line-height: 1;
-}
-
-.interests .icon-box h3 {
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-size: 16px;
-  color: var(--white);;
-}
-
-.interests .icon-box:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
 
 /*--------------------------------------------------------------
 # Resume
@@ -523,7 +451,6 @@ section .container {
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: var(--primarybright);
   margin-bottom: 10px;
 }
 
@@ -556,8 +483,7 @@ section .container {
   border-radius: 50px;
   left: -9px;
   top: 0;
-  background: var(--primarybright);
-  border: 2px solid var(--primarybright);
+  border: 2px solid;
 }
 
 /*******************************************************
