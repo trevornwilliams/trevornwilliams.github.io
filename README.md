@@ -18,11 +18,11 @@
 
 ## Skills
 
-#### Software: Office // Shotgun // Filemaker Pro // Cinesync // Avid // Adobe CC // Resolve
+- Software: Office // Shotgun // Filemaker Pro // Cinesync // Avid // Adobe CC // Resolve
 
-#### Operating Systems: macOS // Windows // CentOS // Ubuntu Server // Kali
+- Operating Systems: macOS // Windows // CentOS // Ubuntu Server // Kali
 
-#### Programming Languages: Python // Java // Javascript // SQL
+- Programming Languages: Python // Java // Javascript // SQL
 
 
 ## Websites
