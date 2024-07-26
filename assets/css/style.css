@@ -8,17 +8,44 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  color: var(--white);
-  background: var(--black);
+  position: relative;
+  background: transparent;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  background: var(--black);
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -1;
+}
+
+body,
 a {
   color: var(--white);
-  text-decoration: none;
+}
+
+.housingTheme2 {
+  color: var(--black);
+}
+
+.housingTheme2::before {
+  background: var(--white);
+}
+
+.housingTheme2 a,
+.housingTheme2 h1,
+.housingTheme2 h2,
+.housingTheme2 .resume-title {
+  color: var(--black);
 }
 
 a:hover {
   color: var(--primarybright);
+  text-decoration: none;
 }
 
 h1,
