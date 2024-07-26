@@ -26,11 +26,6 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <style>
-    body {
-      background: transparent;
-    }
-  </style>
 </head>
 
 <body class="housingTheme1">
@@ -39,8 +34,6 @@
   <header id="header" class="header-top">
     <div class="container">
 
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/profile.png" alt="" class="img-fluid"></a> -->
       <h1><a href="index.html">Trevor Neil Williams</a></h1>
 
       <h2><span>Film & Media Professional</span> based in Pasadena, CA </h2>
@@ -53,7 +46,7 @@
           <li>
             <div class="checkbox checkbox-slider--b-flat">
               <label>
-                <input id="theme" type="checkbox"><span> </span>
+                <input id="theme-toggle" type="checkbox"><span>Dark Mode</span>
               </label>
             </div>
           </li>
@@ -176,6 +169,24 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Dark Mode Toggle Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const toggleSwitch = document.getElementById('theme-toggle');
+      const body = document.body;
+
+      toggleSwitch.addEventListener('change', function () {
+        if (this.checked) {
+          body.classList.remove('housingTheme1');
+          body.classList.add('housingTheme2');
+        } else {
+          body.classList.remove('housingTheme2');
+          body.classList.add('housingTheme1');
+        }
+      });
+    });
+  </script>
 
 </body>
 
