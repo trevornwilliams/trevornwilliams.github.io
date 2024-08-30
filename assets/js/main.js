@@ -5,7 +5,7 @@
 * License: https://bootstrapmade.com/license/
 */
 
-(function($) {
+!(function($) {
   "use strict";
 
   // Nav Menu
@@ -32,13 +32,14 @@
           setTimeout(function() {
             $("section").removeClass('section-show');
             $(hash).addClass('section-show');
+
           }, 350);
         } else {
           $("section").removeClass('section-show');
           $(hash).addClass('section-show');
         }
 
-        $('html, body').animate({
+        $('html, body, .housingTheme1, .housingTheme2').animate({
           scrollTop: 0
         }, 350);
 
@@ -49,29 +50,41 @@
         }
 
         return false;
+
       }
     }
   });
+   
+ 
 
-  // Theme Toggle
-  $(document).on('change', '#theme-toggle', function(e) {
-    $('body').toggleClass('dark-theme');
+  // Theme
+  $(document).on('click', '#theme', function(e) {
+    $('body').toggleClass('housingTheme2 housingTheme1');
+    if($(this).is(":checked")){
+      document.documentElement.style.setProperty('--primarybirght', '#0a6ceb');
+    document.documentElement.style.setProperty('--primarylight', '#0a6ceb');
+    document.documentElement.style.setProperty('--white', '#1a1a1a');
+    document.documentElement.style.setProperty('--graygradient', 'rgba(55, 55, 55, 0.816)');
+    document.documentElement.style.setProperty('--darklightwhite', 'rgb(238, 238, 238, 0.919)');
+    document.documentElement.style.setProperty('--lightwhite', 'rgba(16, 16, 16, 0.08)');
+    document.documentElement.style.setProperty('--panels', '#0a6ceb');
+  }
+  else if($(this).is(":not(:checked)")){
+    document.documentElement.style.setProperty('--primarybirght', '#ebb60a');
+    document.documentElement.style.setProperty('--primarylight', '#ebb60a');
+    document.documentElement.style.setProperty('--white', '#ffffff');
+    document.documentElement.style.setProperty('--graygradient', 'rgba(255, 255, 255, 0.816)');
+    document.documentElement.style.setProperty('--darklightwhite', 'rgba(1, 1, 1, 0.72)');
+    document.documentElement.style.setProperty('--lightwhite', 'rgba(255, 255, 255, 0.08)');
+    document.documentElement.style.setProperty('--panels', '#444444');
+
+  }
     
-    if ($('body').hasClass('dark-theme')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
   });
 
-  // Check for saved theme preference
-  $(document).ready(function() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      $('body').addClass('dark-theme');
-      $('#theme-toggle').prop('checked', true);
-    }
-  });
+
+
+
 
   // Activate/show sections on load with hash links
   if (window.location.hash) {
@@ -164,6 +177,7 @@
         filter: $(this).data('filter')
       });
     });
+
   });
 
   // Initiate venobox (lightbox feature used in portofilo)
