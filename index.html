@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -5,12 +6,13 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Trevor Neil Williams</title>
-  <meta content="Film & Media Professional based in Pasadena, CA" name="description">
-  <meta content="film, media, production, post-production, Trevor Neil Williams" name="keywords">
+  <meta name="description"
+    content="Trevor Neil Williams is a Film & Media Professional based in Pasadena, CA, specializing in production and post-production.">
+  <meta name="keywords" content="Trevor Neil Williams, Film, Media, Production, Post-production">
 
   <!-- Favicons -->
-  <link href="assets/img/new-favicon.png" rel="icon">
-  <link href="assets/img/apple-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link
@@ -21,6 +23,9 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -30,18 +35,25 @@
       background: transparent;
     }
   </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Trevor Neil Williams",
+      "jobTitle": "Film & Media Professional",
+      "url": "https://www.trevornwilliams.com"
+    }
+    </script>
 </head>
 
 <body class="housingTheme1">
-
+  
   <!-- ======= Header ======= -->
-  <header id="header" class="header-top">
+  <header id="header" class="header-tops">
     <div class="container">
-
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/profile.png" alt="" class="img-fluid"></a> -->
       <h1><a href="index.html">Trevor Neil Williams</a></h1>
-
       <h2><span>Film & Media Professional</span> based in Pasadena, CA </h2>
 
       <nav class="nav-menu d-none d-lg-block">
@@ -49,37 +61,40 @@
           <li class="active"><a href="#header">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#resume">Resume</a></li>
-          <li>
-            <div class="checkbox checkbox-slider--b-flat">
-              <label>
-                <input id="theme" type="checkbox"><span> </span>
-              </label>
-            </div>
-          </li>
+                    <li>
+                      <div class="theme-switch">
+                        <label class="checkbox-slider--b-flat" for="theme">
+                          <input type="checkbox" id="theme" aria-label="Toggle dark/light theme">
+                          <span></span>
+                        </label>
+                      </div>
+                    </li>
         </ul>
-      </nav><!-- .nav-menu -->
+      </nav>
 
       <div class="social-links">
-        <a href="mailto: trevor@trevornwilliams.com" target="_blank" class="email"><i class="ri-mail-line"></i></a>
-        <a href="https://www.linkedin.com/in/trevornwilliams/" target="_blank" class="linkedin"><i
-            class="icofont-linkedin"></i></a>
-        <a href="https://github.com/trevornwilliams" target="_blank" class="github"><i class="ri-github-fill"></i></a>
-        <a href="https://www.imdb.com/name/nm4383384/?ref_=nv_sr_srsg_0_tt_0_nm_1_q_trevor%2520neil%2520williams"
-          target="_blank" class="imdb"><i class="icofont-brand-imdb"></i></a>
-        <a href="https://vimeo.com/trevornwilliams" target="_blank" class="vimeo"><i class="icofont-vimeo"></i></a>
+        <a href="mailto:trevor@trevornwilliams.com" class="email" aria-label="Email"><i
+            class="icofont-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/trevornwilliams/" class="linkedin" target="_blank"
+          rel="noopener noreferrer" aria-label="LinkedIn"><i class="icofont-linkedin"></i></a>
+        <a href="https://github.com/trevornwilliams" class="github" target="_blank" rel="noopener noreferrer"
+          aria-label="GitHub"><i class="ri-github-fill"></i></a>
+        <a href="https://www.imdb.com/name/nm4383384/" class="imdb" target="_blank" rel="noopener noreferrer"
+          aria-label="IMDb"><i class="icofont-brand-imdb"></i></a>
+        <a href="https://vimeo.com/trevornwilliams" class="vimeo" target="_blank" rel="noopener noreferrer"
+          aria-label="Vimeo"><i class="icofont-vimeo"></i></a>
       </div>
 
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Resume Section ======= -->
-  <section id="resume" class="resume">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Resume</h2>
+      </header><!-- End Header -->
+      
+      <!-- ======= Resume Section ======= -->
+      <section id="resume" class="resume">
+        <div class="container">
+      
+          <div class="section-title">
+            <h2>Resume</h2>
       </div>
-
+      
       <div class="row">
         <div class="col-lg-6">
           <h3 class="resume-title">Summary</h3>
@@ -92,7 +107,7 @@
                 creating automations to streamline workflows and coordinating pipelines efficiently.</em>
             </p>
           </div>
-
+      
           <h3 class="resume-title">Education</h3>
           <div class="resume-item">
             <h4>Bachelor of Arts – Film & Video</h4>
@@ -103,7 +118,7 @@
             <p><em>Pasadena City College // Pasadena, CA // 2022</em></p>
           </div>
         </div>
-
+      
         <div class="col-lg-6">
           <h3 class="resume-title">Relevant Experience</h3>
           <div class="resume-item">
@@ -121,18 +136,18 @@
           </div>
         </div>
       </div>
-
-    </div>
-  </section><!-- End Resume Section -->
+      
+      </div>
+      </section><!-- End Resume Section -->
 
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
     <div class="container">
-
+  
       <div class="section-title">
         <h2>About</h2>
       </div>
-
+  
       <div class="row">
         <div class="col-lg-4">
           <img src="assets/img/profile.png" class="img-fluid" alt="">
@@ -162,20 +177,22 @@
           </div>
         </div>
       </div>
-
+  
     </div>
   </section><!-- End About Section -->
 
-  <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
   <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>
