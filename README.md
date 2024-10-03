@@ -13,16 +13,20 @@
 
 - Columbia College Chicago | Bachelor of Arts - Film & Video // Chicago, IL // 2010
 - Pasadena City College | Certificate - Cybersecurity // Pasadena, CA // 2022
+- Pasadena City College | Certificate - System & Network Administration // Pasadena, CA // 2022
 
 ## Skills
 
-- Software: Office // Shotgun // Filemaker Pro // Cinesync // Avid // Adobe CC // Resolve
+- Software: Office // Filemaker Pro // ShotGrid // Avid // Adobe CC // Resolve // Git
 
-- Operating Systems: macOS // Windows // CentOS // Ubuntu Server // Kali
+- Code & Networks: Python // Java // Javascript // SQL // VPN // FTP // IPsec // OSPF
 
-- Programming Languages: Python // Java // Javascript // SQL
+- Digital Asset Management: Codecs // XML // EDL // CDL // LUT // EXR // OBJ // STL
+
+- Operating Systems: macOS // Windows // Linux – CentOS // Ubuntu Server // Kali
 
 ## Websites
 
+- [CreateCompile](https://www.createcompile.com)
 - [FilmFrameFocus](https://www.filmframefocus.com)
 - [Mostly Edible](https://www.mostlyedible.com)
