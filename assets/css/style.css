@@ -280,6 +280,10 @@ section.section-show {
 
 section .container {
   padding: 30px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .section-title h2 {
@@ -299,7 +303,7 @@ section .container {
   font-weight: 700;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: var(--white);
+  color: var(--black);
 }
 
 /* About */
@@ -346,6 +350,12 @@ section .container {
 
 .personal-links i {
   margin-right: 5px;
+}
+
+@media (min-width: 768px) {
+  .nav-menu {
+    display: block !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -420,6 +430,57 @@ section .container {
   border: 2px solid;
 }
 
+.resume-download-link {
+  margin-top: 30px;
+}
+
+.resume-download-link .btn-dark {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.resume-download-link .btn-dark:hover {
+  background-color: #333333;
+  border-color: #333333;
+}
+
+/* Footer */
+#footer {
+  background: #000000;
+  padding: 30px 0;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+}
+
+#footer .social-links {
+  margin-bottom: 20px;
+}
+
+#footer .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #ffffff;
+  color: #000000;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#footer .social-links a:hover {
+  background: #cccccc;
+  color: #000000;
+  text-decoration: none;
+}
+
 /* Responsive styles */
 @media (max-width: 992px) {
   #header h1 {
@@ -436,6 +497,9 @@ section .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  section .container {
+    padding: 20px;
   }
 }
 
@@ -461,6 +525,9 @@ section .container {
   }
   section.section-show {
     top: 80px;
+  }
+  section .container {
+    padding: 15px;
   }
 }
 
