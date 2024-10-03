@@ -13,8 +13,28 @@ body {
   flex-direction: column;
 }
 
+a {
+  color: var(--black);
+  font-weight: bold;
+}
+a:hover {
+  color: #656565;
+  text-decoration: none;
+}
+
 #content {
   flex: 1 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+#sketch-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 #footer {
@@ -55,37 +75,11 @@ body {
   margin-bottom: 1rem;
 }
 
-
-
-#sketch-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-#content {
-  position: relative;
-  z-index: 1;
-}
-
-a {
-  color: var(--black);
-  font-weight: bold;
-}
-
-a:hover {
-  color: #656565;
-  text-decoration: none;
-}
-
-h1, h2, h3, h4, h5, h6 {
+/* Header styles */
+h1, h2, h3 {
   font-family: "Raleway", sans-serif;
 }
 
-/* Header styles */
 #header {
   transition: ease-in-out 0.3s;
   position: relative;
@@ -334,7 +328,7 @@ section .container {
 }
 
 .section-title h2 {
-  font-size: 14px;
+  font-size: 24px;
   font-weight: 500;
   padding: 0;
   line-height: 1px;
@@ -356,7 +350,7 @@ section .container {
 /* About */
 .about-me .content h3 {
   font-weight: 700;
-  font-size: 26px;
+  font-size: 20px;
 }
 
 .about-me .content ul {
@@ -422,61 +416,6 @@ section .container {
 }
 
 /* Resume */
-.resume .resume-title {
-  font-size: 26px;
-  font-weight: 700;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: var(--black);
-}
-
-.resume .resume-item {
-  padding: 0 0 20px 20px;
-  margin-top: -2px;
-  position: relative;
-}
-
-.resume .resume-item h4 {
-  line-height: 18px;
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 10px;
-}
-
-.resume .resume-item h5 {
-  font-size: 16px;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 5px 15px;
-  display: inline-block;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.resume .resume-item ul {
-  padding-left: 20px;
-}
-
-.resume .resume-item ul li {
-  padding-bottom: 10px;
-}
-
-.resume .resume-item:last-child {
-  padding-bottom: 0;
-}
-
-.resume .resume-item::before {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-radius: 50px;
-  left: -9px;
-  top: 0;
-  border: 2px solid;
-}
-
 .resume-download-link {
   margin-top: 30px;
 }
@@ -501,7 +440,7 @@ section .container {
     font-size: 36px;
   }
   #header h2 {
-    font-size: 20px;
+    font-size: 24px;
     line-height: 30px;
   }
   #header .social-links {
@@ -522,7 +461,7 @@ section .container {
     font-size: 36px;
   }
   #header h2 {
-    font-size: 20px;
+    font-size: 24px;
     line-height: 30px;
   }
   .nav-menu {
