@@ -28,48 +28,6 @@
   <!-- Main CSS Files -->  
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <style>
-    body { 
-      background: transparent;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    #content {
-      flex: 1 0 auto;
-    }
-    #footer {
-      flex-shrink: 0;
-      background: #000000;
-      padding: 30px 0;
-      color: #ffffff;
-      font-size: 14px;
-      text-align: center;
-    }
-    #footer .social-links a {
-      font-size: 18px;
-      display: inline-block;
-      background: #ffffff;
-      color: #000000;
-      line-height: 1;
-      padding: 8px 0;
-      margin-right: 4px;
-      border-radius: 50%;
-      text-align: center;
-      width: 36px;
-      height: 36px;
-      transition: 0.3s;
-    }
-    #footer .social-links a:hover {
-      background: #cccccc;
-      color: #000000;
-      text-decoration: none;
-    }
-    .underline {
-      text-decoration: underline;
-    }
-  </style>
-
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -87,12 +45,12 @@
     <header id="header" class="header-tops">
       <div class="container">
         <h1><a href="index.html">Trevor Neil Williams</a></h1>
-        <h2>Film & Media Professional based in Pasadena, CA</h2>
+        <h2><span>Film & Media Professional</span> based in Pasadena, CA</h2>
         <nav class="nav-menu d-none d-lg-block">
           <ul>
             <li class="active"><a href="#header">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#resume">Resume</a></li>
+             <!--<li><a href="#resume">Resume</a></li>-->
           </ul>
         </nav>
       </div>
@@ -104,85 +62,39 @@
         <div class="section-title">
           <h3>About</h3>
         </div>
-    
         <div class="row">
           <div class="col-lg-12 pt-4 pt-lg-0 content">
             <p class="font-italic">
               From my start in the foothills of Appalachia to the bustling streets of America's biggest cities, I've called many places home. One thing that's always stayed the same is my belief in reliability – if I say I'll do something, consider it done! When I'm not at work, I'm either relaxing at a cinema, exploring virtual worlds, trying out new recipes or restaurants, or on a trail high above Los Angeles. The links below take you to my personal interest blogs. If you see something you like, let's connect!
             </p>
+            <div class="spaced-element"> </div>
             <div class="personal-links">
               <a href="https://createcompile.com"><i class="ri-code-s-slash-line"></i> CreateCompile.com</a>
               <a href="https://filmframefocus.com"><i class="ri-film-fill"></i> FilmFrameFocus.com</a>
               <a href="https://mostlyedible.com"><i class="ri-restaurant-line"></i> MostlyEdible.com</a>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-   
-    <!-- Resume Section -->
-    <section id="resume" class="resume">
-      <div class="container">
-        <div class="section-title">
-          <h3>Resume</h3>
-        </div>
-        
-        <div class="row">
-          <div class="col-lg-6">
-            <h3 class="resume-title">Summary</h3>
-            <div class="resume-item pb-0">
-              <h4>Trevor Neil Williams</h4>
-              <p><em>Dedicated and detail-oriented Film & TV Professional with a strong background in production and post-production. Proficient in a variety of software and operating systems, with a solid foundation in cybersecurity and programming languages. Adept at creating automations to streamline workflows and coordinating pipelines efficiently.</em></p>
-            </div>
-        
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Bachelor of Arts – Film & Video</h4>
-              <p><em>Columbia College-Chicago // Chicago, IL // 2010</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Certificates – Cybersecurity</h4>
-              <p><em>Pasadena City College // Pasadena, CA // 2022</em></p>
-            </div>
-          </div>
-        
-          <div class="col-lg-6">
-            <h3 class="resume-title">Relevant Experience</h3>
-            <div class="resume-item">
-              <h4>Production & Post Production</h4>
-              <p><em>Freelance // Los Angeles, CA</em></p>
-              <h5>2014 - Present</h5>
-              <ul>
-                <li>Managed the logistics of data, facilitating collaboration and ensuring timely completion of tasks</li>
-                <li>Prepared and distributed essential production documents to ensure seamless communication</li>
-                <li>Processed invoices, expense reports, and POs, ensuring adherence to budgets</li>
-                <li>Analyzed existing workflows and improved efficiency across departments</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="row mt-4">
-            <div class="col-lg-12 text-center">
-              <div class="resume-download-link">
-                <a href="assets/TrevorWilliams_Resume.pdf" download="TrevorWilliams_Resume.pdf" class="btn btn-dark">
-                  Download Full Resume (PDF)
-                </a>
+            <div class="spaced-element"> </div>
+            <div class="row mt-4">
+              <div class="col-lg-12 text-center">
+                <div class="resume-download-link">
+                  <a href="assets/TrevorWilliams_Resume.pdf" download="TrevorWilliams_Resume.pdf" class="btn btn-dark">
+                    Download Resume (PDF)
+                  </a>
+                </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
     </section>
   </div>
 
+  <!-- Footer -->
   <footer id="footer">
     <div class="container">
       <div class="social-links">
         <a href="mailto:trevor@trevornwilliams.com" class="email" aria-label="Email"><i class="icofont-envelope"></i></a>
         <a href="https://www.linkedin.com/in/trevornwilliams/" class="linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="icofont-linkedin"></i></a>
         <a href="https://github.com/trevornwilliams" class="github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="ri-github-fill"></i></a>
-        <a href="https://www.imdb.com/name/nm4383384/" class="imdb" target="_blank" rel="noopener noreferrer" aria-label="IMDb"><i class="icofont-brand-imdb"></i></a>
-        <a href="https://vimeo.com/trevornwilliams" class="vimeo" target="_blank" rel="noopener noreferrer" aria-label="Vimeo"><i class="icofont-vimeo"></i></a>
       </div>
     </div>
   </footer>
