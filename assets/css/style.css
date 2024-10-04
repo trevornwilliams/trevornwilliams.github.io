@@ -570,3 +570,51 @@ section .container {
     font-size: 18px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  #header {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 33vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  #header .container {
+    padding-top: 0;
+  }
+
+  #header h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  #header h2 {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 280px;
+  }
+
+  .nav-menu {
+    margin-top: 30px;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+
+  .nav-menu a {
+    font-size: 18px;
+  }
+
+  #header.header-top {
+    height: auto;
+    min-height: 100vh;
+  }
+}
