@@ -109,3 +109,48 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  const header = document.querySelector('#header');
+  const headerHeight = header.offsetHeight;
+  const sections = document.querySelectorAll('section');
+
+  function handleScroll() {
+    if (window.pageYOffset > 100) {
+      header.classList.add('header-top');
+    } else {
+      header.classList.remove('header-top');
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll);
+
+  // Smooth scroll and section activation
+  document.querySelectorAll('.nav-menu a, .mobile-nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      if (this.hash !== "") {
+        e.preventDefault();
+        let hash = this.hash;
+        let target = document.querySelector(hash);
+        
+        if (target) {
+          header.classList.add('header-top');
+          
+          window.scrollTo({
+            top: target.offsetTop - header.offsetHeight,
+            behavior: 'smooth'
+          });
+
+          // Update active class
+          document.querySelectorAll('.nav-menu .active, .mobile-nav .active').forEach(item => {
+            item.classList.remove('active');
+          });
+          this.closest('li').classList.add('active');
+        }
+      }
+    });
+  });
+
+  // Initial check for header state
+  handleScroll();
+});
