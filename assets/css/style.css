@@ -523,8 +523,11 @@ section .container {
 /* Responsive styles */
 @media (max-width: 768px) {
   #header {
-    height: auto;
-    padding: 20px 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
   }
 
   #header .container {
@@ -532,17 +535,20 @@ section .container {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    max-width: 100%;
   }
 
   #header h1 {
     font-size: 20px;
     margin-bottom: 10px;
+    white-space: nowrap;
   }
 
   #header h2 {
     font-size: 14px;
     line-height: 1.4;
     margin-bottom: 20px;
+    max-width: 280px;
   }
 
   .nav-menu {
@@ -553,6 +559,7 @@ section .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0;
   }
 
   .nav-menu li {
