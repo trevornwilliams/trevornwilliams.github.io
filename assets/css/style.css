@@ -535,12 +535,12 @@ section .container {
   }
 
   #header h1 {
-    font-size: 28px;
+    font-size: 20px;
     margin-bottom: 10px;
   }
 
   #header h2 {
-    font-size: 18px;
+    font-size: 14px;
     line-height: 1.4;
     margin-bottom: 20px;
   }
@@ -560,6 +560,6 @@ section .container {
   }
 
   .nav-menu a {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
