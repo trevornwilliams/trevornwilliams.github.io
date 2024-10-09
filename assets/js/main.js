@@ -35,25 +35,46 @@ document.addEventListener('DOMContentLoaded', (event) => {
     e.preventDefault();
     let hash = this.hash;
     
-    if (hash === "#header") {
-      // Home button clicked
-      header.classList.remove('header-top');
-      content.classList.remove('content-show');
-      document.querySelectorAll('section').forEach(section => {
-        section.classList.remove('section-show');
-      });
-    } else if (hash !== "") {
-      let target = document.querySelector(hash);
-      
-      if (target) {
-        header.classList.add('header-top');
-        content.classList.add('content-show');
+    if (isMobile()) {
+      if (hash === "#header") {
+        // Home button clicked
+        header.classList.remove('compact');
+        header.classList.add('fullscreen');
+        content.style.display = 'none';
+      } else if (hash !== "") {
+        let target = document.querySelector(hash);
         
+        if (target) {
+          header.classList.remove('fullscreen');
+          header.classList.add('compact');
+          content.style.display = 'block';
+          
+          document.querySelectorAll('section').forEach(section => {
+            section.classList.remove('section-show');
+          });
+          
+          target.classList.add('section-show');
+        }
+      }
+    } else {
+      if (hash === "#header") {
+        // Home button clicked
+        header.classList.remove('header-top');
         document.querySelectorAll('section').forEach(section => {
           section.classList.remove('section-show');
         });
+      } else if (hash !== "") {
+        let target = document.querySelector(hash);
         
-        target.classList.add('section-show');
+        if (target) {
+          header.classList.add('header-top');
+          
+          document.querySelectorAll('section').forEach(section => {
+            section.classList.remove('section-show');
+          });
+          
+          target.classList.add('section-show');
+        }
       }
     }
 
@@ -71,15 +92,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
       mobileNavOverlay.style.display = 'none';
     }
 
-    // Scroll to top on mobile
-    if (isMobile()) {
-      window.scrollTo(0, 0);
-    } else {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
+    // Scroll to top
+    window.scrollTo({
+      top: 0,
+      behavior: isMobile() ? 'auto' : 'smooth'
+    });
   }
 
   // Attach click event to all navigation links
@@ -113,19 +130,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
   window.addEventListener('resize', function() {
     updateHeaderHeight();
     handleScroll();
-    if (!isMobile()) {
+    if (isMobile()) {
+      if (!header.classList.contains('compact')) {
+        header.classList.add('fullscreen');
+        content.style.display = 'none';
+      }
+    } else {
+      header.classList.remove('fullscreen', 'compact');
+      content.style.display = 'block';
       document.body.classList.remove('mobile-nav-active');
       mobileNavToggle.classList.remove('bi-x');
       mobileNavToggle.classList.add('bi-list');
       mobileNavOverlay.style.display = 'none';
-      header.classList.remove('header-top');
-      content.classList.remove('content-show');
     }
   });
 
   // Initial setup
   updateHeaderHeight();
   handleScroll();
+  if (isMobile()) {
+    header.classList.add('fullscreen');
+    content.style.display = 'none';
+  }
 
   // Activate/show sections on load with hash links
   if (window.location.hash) {

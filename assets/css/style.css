@@ -488,68 +488,53 @@ section .container {
   color: var(--white);
 }
 
-/* Updated Mobile Navigation Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
   #header {
-    height: 100vh;
-    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
     z-index: 9999;
     background-color: rgba(255, 255, 255, 0.9);
     transition: all 0.3s ease-in-out;
+  }
+
+  #header.fullscreen {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
   }
 
-  #header.header-top {
+  #header.compact {
     height: auto;
     padding: 15px 0;
-    justify-content: flex-start;
   }
 
-  #header.header-top .container {
+  #header.compact .container {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
   }
 
-  #header.header-top h1 {
-    font-size: 24px;
-    margin: 0;
-  }
-
-  #header.header-top h2,
-  #header.header-top .social-links {
+  #header.compact h2,
+  #header.compact .social-links {
     display: none;
   }
 
-  #header.header-top .nav-menu {
-    margin: 0;
-  }
-
   #content {
-    padding-top: 70px; /* Adjust based on your header height */
+    padding-top: 70px; /* Adjust based on your compact header height */
     transition: all 0.3s ease-in-out;
-    opacity: 0;
-    visibility: hidden;
   }
 
-  #content.content-show {
-    opacity: 1;
-    visibility: visible;
+  .nav-menu ul {
+    flex-direction: column;
+    align-items: center;
   }
 
   section {
-    position: relative;
-    top: 0;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease-in-out;
@@ -559,18 +544,20 @@ section .container {
     opacity: 1;
     visibility: visible;
   }
+}
 
-  .nav-menu ul {
-    flex-direction: column;
-    align-items: center;
+/* Ensure content is visible on larger screens */
+@media (min-width: 769px) {
+  #header {
+    position: relative;
   }
 
-  .nav-menu li {
-    margin: 10px 0;
+  #content {
+    padding-top: 0;
   }
 
-  .nav-menu a {
-    font-size: 18px;
+  section {
+    position: absolute;
   }
 }
 
