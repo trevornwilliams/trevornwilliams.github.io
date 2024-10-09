@@ -6,98 +6,63 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const navMenu = document.querySelector('.nav-menu');
   const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
   const mobileNavOverlay = document.querySelector('.mobile-nav-overly');
-  let headerHeight;
 
   function isMobile() {
     return window.innerWidth <= 768;
   }
 
-  function updateHeaderHeight() {
-    headerHeight = header.offsetHeight;
+  function updateLayout() {
     if (isMobile()) {
-      content.style.paddingTop = `${headerHeight}px`;
       header.classList.add('mobile-view');
+      header.classList.remove('header-top');
+      content.style.paddingTop = header.offsetHeight + 'px'; // Ensure content starts after header
     } else {
-      content.style.paddingTop = '0';
       header.classList.remove('mobile-view');
+      content.style.paddingTop = '0';
     }
   }
-
+  
   function handleScroll() {
-    if (window.pageYOffset > 100 && !isMobile()) {
+    if (!isMobile() && window.pageYOffset > 100) {
       header.classList.add('header-top');
-    } else if (!isMobile()) {
+    } else {
       header.classList.remove('header-top');
     }
   }
-
+  
   function handleNavigation(e) {
     e.preventDefault();
     let hash = this.hash;
     
-    if (isMobile()) {
-      if (hash === "#header") {
-        // Home button clicked
-        header.classList.remove('compact');
-        header.classList.add('fullscreen');
-        content.style.display = 'none';
-      } else if (hash !== "") {
-        let target = document.querySelector(hash);
-        
-        if (target) {
-          header.classList.remove('fullscreen');
+    if (hash === "#header") {
+      header.classList.remove('compact');
+      content.classList.remove('content-show');
+    } else if (hash !== "") {
+      let target = document.querySelector(hash);
+      
+      if (target) {
+        if (isMobile()) {
           header.classList.add('compact');
-          content.style.display = 'block';
-          
-          document.querySelectorAll('section').forEach(section => {
-            section.classList.remove('section-show');
-          });
-          
-          target.classList.add('section-show');
+        } else {
+          header.classList.add('header-top');
         }
-      }
-    } else {
-      if (hash === "#header") {
-        // Home button clicked
-        header.classList.remove('header-top');
+        content.classList.add('content-show');
+        
         document.querySelectorAll('section').forEach(section => {
           section.classList.remove('section-show');
         });
-      } else if (hash !== "") {
-        let target = document.querySelector(hash);
         
-        if (target) {
-          header.classList.add('header-top');
-          
-          document.querySelectorAll('section').forEach(section => {
-            section.classList.remove('section-show');
-          });
-          
-          target.classList.add('section-show');
-        }
+        target.classList.add('section-show');
       }
     }
-
-    // Update active class
-    document.querySelectorAll('.nav-menu .active, .mobile-nav .active').forEach(item => {
-      item.classList.remove('active');
-    });
-    this.closest('li').classList.add('active');
-
-    // Close mobile nav if open
-    if (document.body.classList.contains('mobile-nav-active')) {
-      document.body.classList.remove('mobile-nav-active');
-      mobileNavToggle.classList.toggle('bi-list');
-      mobileNavToggle.classList.toggle('bi-x');
-      mobileNavOverlay.style.display = 'none';
-    }
-
-    // Scroll to top
+  
+    // Smooth scroll
     window.scrollTo({
       top: 0,
-      behavior: isMobile() ? 'auto' : 'smooth'
+      behavior: 'smooth'
     });
   }
+  
 
   // Attach click event to all navigation links
   document.querySelectorAll('.nav-menu a, .mobile-nav a').forEach(link => {
@@ -106,13 +71,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   // Mobile Navigation Toggle
   if (mobileNavToggle) {
-    mobileNavToggle.addEventListener('click', function(e) {
+    mobileNavToggle.addEventListener('click', function() {
       document.body.classList.toggle('mobile-nav-active');
+      document.body.style.overflow = document.body.classList.contains('mobile-nav-active') ? 'hidden' : ''; // Prevent scrolling
       this.classList.toggle('bi-list');
       this.classList.toggle('bi-x');
-      mobileNavOverlay.style.display = 
-        mobileNavOverlay.style.display === 'block' ? 'none' : 'block';
+      mobileNavOverlay.style.display = mobileNavOverlay.style.display === 'block' ? 'none' : 'block';
     });
+    
   }
 
   // Click outside of mobile nav to close it
@@ -128,36 +94,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
   // Handle window events
   window.addEventListener('scroll', handleScroll);
   window.addEventListener('resize', function() {
-    updateHeaderHeight();
+    updateLayout();
     handleScroll();
-    if (isMobile()) {
-      if (!header.classList.contains('compact')) {
-        header.classList.add('fullscreen');
-        content.style.display = 'none';
-      }
-    } else {
-      header.classList.remove('fullscreen', 'compact');
-      content.style.display = 'block';
-      document.body.classList.remove('mobile-nav-active');
-      mobileNavToggle.classList.remove('bi-x');
-      mobileNavToggle.classList.add('bi-list');
-      mobileNavOverlay.style.display = 'none';
-    }
   });
 
   // Initial setup
-  updateHeaderHeight();
+  updateLayout();
   handleScroll();
-  if (isMobile()) {
-    header.classList.add('fullscreen');
-    content.style.display = 'none';
-  }
 
   // Activate/show sections on load with hash links
   if (window.location.hash) {
     let initial_nav = document.querySelector(window.location.hash);
     if (initial_nav) {
-      header.classList.add('header-top');
+      if (isMobile()) {
+        header.classList.add('compact');
+      } else {
+        header.classList.add('header-top');
+      }
+      content.classList.add('content-show');
       document.querySelectorAll('.nav-menu .active, .mobile-nav .active').forEach(item => {
         item.classList.remove('active');
       });
