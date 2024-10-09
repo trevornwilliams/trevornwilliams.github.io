@@ -10,15 +10,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
   function updateHeaderHeight() {
     headerHeight = header.offsetHeight;
-    if (window.innerWidth <= 768) {  // Only apply padding on mobile
+    if (window.innerWidth <= 768) {  // Mobile view
       content.style.paddingTop = `${headerHeight}px`;
-    } else {
+      header.classList.add('mobile-view');
+    } else {  // Desktop view
       content.style.paddingTop = '0';
+      header.classList.remove('mobile-view');
     }
   }
 
   function handleScroll() {
-    if (window.pageYOffset > 100) {
+    if (window.pageYOffset > 100 && window.innerWidth > 768) {
       header.classList.add('header-top');
     } else {
       header.classList.remove('header-top');
@@ -30,11 +32,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     updateHeaderHeight();
   });
 
-  window.addEventListener('resize', updateHeaderHeight);
+  window.addEventListener('resize', () => {
+    updateHeaderHeight();
+    handleScroll();
+  });
 
   // Initial check for header state and height
-  handleScroll();
   updateHeaderHeight();
+  handleScroll();
 
   // Smooth scroll for navigation links
   document.querySelectorAll('.nav-menu a, .mobile-nav a').forEach(link => {

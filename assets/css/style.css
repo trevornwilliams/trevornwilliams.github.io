@@ -501,33 +501,46 @@ section .container {
 
 @media (max-width: 768px) {
   #header {
-    height: auto;
+    height: 100vh;
     padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   #header.header-top {
+    height: auto;
     padding: 15px 0;
-  }
-
-  #header h1 {
-    font-size: 24px;
-    margin-bottom: 5px;
-  }
-
-  #header h2 {
-    font-size: 16px;
-    line-height: 1.2;
   }
 
   #header .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  #header h1 {
+    font-size: 8vw; /* Responsive font size */
+    margin-bottom: 10px;
+    max-width: 90%; /* Prevent text from overflowing */
+  }
+
+  #header h2 {
+    font-size: 4vw; /* Responsive font size */
+    line-height: 1.4;
+    max-width: 90%; /* Prevent text from overflowing */
+  }
+
+  #header h2 span {
+    display: inline-block; /* Allow line breaks within the span */
   }
 
   .nav-menu {
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
   .nav-menu ul {
@@ -553,12 +566,29 @@ section .container {
   .personal-links {
     flex-wrap: wrap;
     justify-content: center;
+    max-width: 90%;
   }
   
   .personal-links a {
     flex-basis: calc(50% - 10px);
     margin-bottom: 10px;
     font-size: 14px;
+  }
+
+  /* Ensure the content doesn't overlap with the header when it's fixed */
+  #content {
+    padding-top: 80px; /* Adjust this value based on your header height */
+  }
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 480px) {
+  #header h1 {
+    font-size: 10vw; /* Slightly larger for very small screens */
+  }
+
+  #header h2 {
+    font-size: 5vw; /* Slightly larger for very small screens */
   }
 }
 
