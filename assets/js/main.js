@@ -39,9 +39,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
   // Smooth scroll for navigation links
   document.querySelectorAll('.nav-menu a, .mobile-nav a').forEach(link => {
     link.addEventListener('click', function(e) {
-      if (this.hash !== "") {
-        e.preventDefault();
-        let hash = this.hash;
+      e.preventDefault();
+      let hash = this.hash;
+      
+      if (hash === "#header") {
+        // Home button clicked
+        header.classList.remove('header-top');
+        document.querySelectorAll('section').forEach(section => {
+          section.classList.remove('section-show');
+        });
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      } else if (hash !== "") {
         let target = document.querySelector(hash);
         
         if (target) {
@@ -59,21 +70,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
             top: 0,
             behavior: 'smooth'
           });
-
-          // Update active class
-          document.querySelectorAll('.nav-menu .active, .mobile-nav .active').forEach(item => {
-            item.classList.remove('active');
-          });
-          this.closest('li').classList.add('active');
-
-          // Close mobile nav if open
-          if (document.body.classList.contains('mobile-nav-active')) {
-            document.body.classList.remove('mobile-nav-active');
-            mobileNavToggle.classList.toggle('fa-bars');
-            mobileNavToggle.classList.toggle('fa-times');
-            mobileNavOverlay.style.display = 'none';
-          }
         }
+      }
+
+      // Update active class
+      document.querySelectorAll('.nav-menu .active, .mobile-nav .active').forEach(item => {
+        item.classList.remove('active');
+      });
+      this.closest('li').classList.add('active');
+
+      // Close mobile nav if open
+      if (document.body.classList.contains('mobile-nav-active')) {
+        document.body.classList.remove('mobile-nav-active');
+        mobileNavToggle.classList.toggle('fa-bars');
+        mobileNavToggle.classList.toggle('fa-times');
+        mobileNavOverlay.style.display = 'none';
       }
     });
   });
