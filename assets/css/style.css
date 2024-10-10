@@ -2,6 +2,9 @@
   --white: #ffffff;
   --black: #000000;
   --gray: #4b4b4b;
+  --link-font-size: 0.9em;
+  --link-line-height: 1.8em;
+  --link-margin-bottom: 10px;
 }
 
 * {
@@ -72,6 +75,15 @@ h1, h2, h3, h4, h5, h6 {
 .social-links a i {
   line-height: 0;
   font-size: 16px;
+}
+
+.nav-menu ul {
+  font-size: var(--link-font-size);
+  line-height: var(--link-line-height);
+}
+
+.nav-menu ul li {
+  margin-bottom: var(--link-margin-bottom);
 }
 
 @media (min-width: 576px) {
@@ -344,18 +356,17 @@ h1, h2, h3, h4, h5, h6 {
 /* Sections General */
 section {
   overflow: hidden;
-  position: absolute;
+  position: relative;
   width: 100%;
   top: 140px;
-  bottom: 100%;
   opacity: 0;
   transition: ease-in-out 0.4s;
   z-index: 2;
+  margin-top: 100px; /* Ensure content is not covered by the fixed header */
 }
 
 section.section-show {
   top: 140px;
-  bottom: auto;
   opacity: 1;
   padding-bottom: 45px;
 }
@@ -499,7 +510,7 @@ section .container {
   }
 
   section {
-    position: absolute;
+    position: relative;
   }
 }
 
@@ -553,5 +564,3 @@ section .container {
     margin: 10px 0;
   }
 }
-
-

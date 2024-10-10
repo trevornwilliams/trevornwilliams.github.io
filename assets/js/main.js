@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       content.style.paddingTop = header.offsetHeight + 'px'; // Ensure content starts after header
     } else {
       header.classList.remove('mobile-view');
+      header.classList.remove('compact');
       content.style.paddingTop = '0';
     }
   }
@@ -62,7 +63,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
       behavior: 'smooth'
     });
   }
-  
 
   // Attach click event to all navigation links
   document.querySelectorAll('.nav-menu a, .mobile-nav a').forEach(link => {
@@ -76,9 +76,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
       document.body.style.overflow = document.body.classList.contains('mobile-nav-active') ? 'hidden' : ''; // Prevent scrolling
       this.classList.toggle('bi-list');
       this.classList.toggle('bi-x');
-      mobileNavOverlay.style.display = mobileNavOverlay.style.display === 'block' ? 'none' : 'block';
+      mobileNavOverlay.classList.toggle('visible'); // Use class for styling instead of style property
     });
-    
   }
 
   // Click outside of mobile nav to close it
@@ -87,7 +86,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       document.body.classList.remove('mobile-nav-active');
       mobileNavToggle.classList.toggle('bi-list');
       mobileNavToggle.classList.toggle('bi-x');
-      mobileNavOverlay.style.display = 'none';
+      mobileNavOverlay.classList.remove('visible');
     }
   });
 

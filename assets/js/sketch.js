@@ -2,6 +2,7 @@ let spirals = [];
 let numSpirals = 20;  // Increased number of spirals
 let ripples = [];
 let lastRippleTime = 0;
+let maxRetries = 100;  // Limit retries to avoid infinite loop
 
 function setup() {
   let canvas = createCanvas(windowWidth, windowHeight);
@@ -15,21 +16,25 @@ function createSpirals() {
   spirals = [];
   
   for (let i = 0; i < numSpirals; i++) {
+    let retries = 0;
     let x, y, radius;
     do {
       x = random(width);
       y = random(height);
       radius = random(width * 0.03, width * 0.08);  // Adjusted radius range
-    } while (checkOverlap(x, y, radius));
+      retries++;
+    } while (checkOverlap(x, y, radius) && retries < maxRetries);
     
-    spirals.push({
-      x: x,
-      y: y,
-      radius: radius,
-      angle: 0,
-      angleStep: random(0.05, 0.2),
-      color: color(random(50, 200), random(50, 200), random(50, 200), 150)
-    });
+    if (retries < maxRetries) {
+      spirals.push({
+        x: x,
+        y: y,
+        radius: radius,
+        angle: 0,
+        angleStep: random(0.05, 0.2),
+        color: color(random(50, 200), random(50, 200), random(50, 200), 150)
+      });
+    }
   }
 }
 
