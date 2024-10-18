@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       mobileNavToggle.classList.toggle('bi-x');
       mobileNavOverlay.classList.remove('visible');
     }
-  });
+  });  
 
   // Handle window events
   window.addEventListener('scroll', handleScroll);
