@@ -121,14 +121,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
       }, 350);
     }
   }
-});
-
-<div class="row mt-4">
-  <div class="col-lg-12 text-center">
-    <div class="resume-download-link">
-      <a href="assets/TrevorWilliams_Resume.pdf" download="TrevorWilliams_Resume.pdf" class="btn btn-dark">
-        Download Resume (PDF)
-      </a>
-    </div>
-  </div>
-</div>
+}
+);
