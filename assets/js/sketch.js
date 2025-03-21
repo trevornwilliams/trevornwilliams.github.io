@@ -1,121 +1,97 @@
-let spirals = [];
-let numSpirals = 20;  // Increased number of spirals
-let ripples = [];
-let lastRippleTime = 0;
-let maxRetries = 100;  // Limit retries to avoid infinite loop
+let theShader;
+const vert = `
+attribute vec3 aPosition;
+attribute vec2 aTexCoord;
+varying vec2 vTexCoord;
+void main() {
+  vTexCoord = aTexCoord;
+  vec4 positionVec4 = vec4(aPosition, 1.0);
+  gl_Position = positionVec4;
+}
+`;
+const frag = `
+precision mediump float;
+varying vec2 vTexCoord;
+uniform vec2 u_resolution;
+uniform float u_time;
+const vec3 paper = vec3(0.96, 0.92, 0.83);
+const vec3 p0 = vec3(0.88, 0.51, 0.58);
+const vec3 p1 = vec3(0.99, 0.95, 0.58);
+const vec3 p2 = vec3(0.60, 0.78, 0.95);
+const vec3 p3 = vec3(0.78, 0.82, 0.80);
+const vec3 p4 = vec3(0.82, 0.87, 0.94);
+float hash(vec2 p) {
+  return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+}
+float fbm(vec2 uv) {
+  float v = 0.0;
+  float a = 0.5;
+  for(int i = 0; i < 4; i++) {
+    v += a * hash(uv);
+    uv *= 2.0;
+    a *= 0.5;
+  }
+  return v;
+}
+vec3 getColor(float t) {
+  float idx = fract(t) * 5.0;
+  float f = fract(idx);
+  float seg = floor(idx);
+  if (seg < 1.0) return mix(p0, p1, f);
+  if (seg < 2.0) return mix(p1, p2, f);
+  if (seg < 3.0) return mix(p2, p3, f);
+  if (seg < 4.0) return mix(p3, p4, f);
+  return mix(p4, p0, f);
+}
+void main() {
+  vec2 uv = vTexCoord;
+  
+  // Important: p5.js WEBGL has 0,0 at center and y is inverted
+  // Convert from 0-1 range to -1 to 1 range
+  vec2 pos = uv * 2.0 - 1.0;  
+  
+  // Apply aspect ratio correction
+  pos.x *= u_resolution.x / u_resolution.y;
+  
+  float dist = length(pos);
+  float pulse = sin(dist * 10.0 - u_time * 3.0) * 0.5 + 0.5;
+  float n = fbm(pos * 4.0 - u_time * 0.2);
+  float band = fract(dist * 2.0 - u_time * 0.4 + n * 0.5);
+  vec3 col = getColor(band);
+  float grain = (hash(pos * 400.0 + u_time * 0.4) - 0.5) * 0.02;
+  vec3 final = mix(paper, col, pulse) + grain;
+  gl_FragColor = vec4(final, 1.0);
+}
+`;
+
+function preload() {
+  theShader = new p5.Shader(this.renderer, vert, frag);
+}
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight);
-  canvas.parent('sketch-container');
-  background(240);
-  
-  createSpirals();
-}
-
-function createSpirals() {
-  spirals = [];
-  
-  for (let i = 0; i < numSpirals; i++) {
-    let retries = 0;
-    let x, y, radius;
-    do {
-      x = random(width);
-      y = random(height);
-      radius = random(width * 0.03, width * 0.08);  // Adjusted radius range
-      retries++;
-    } while (checkOverlap(x, y, radius) && retries < maxRetries);
-    
-    if (retries < maxRetries) {
-      spirals.push({
-        x: x,
-        y: y,
-        radius: radius,
-        angle: 0,
-        angleStep: random(0.05, 0.2),
-        color: color(random(50, 200), random(50, 200), random(50, 200), 150)
-      });
-    }
-  }
-}
-
-function checkOverlap(x, y, radius) {
-  for (let spiral of spirals) {
-    let d = dist(x, y, spiral.x, spiral.y);
-    if (d < radius + spiral.radius) {
-      return true;
-    }
-  }
-  return false;
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  noStroke();
 }
 
 function draw() {
-  background(240);
+  // Clear the background to ensure full canvas usage
+  background(0);
   
-  // Add new ripple on mouse move
-  if (mouseX !== pmouseX || mouseY !== pmouseY) {
-    let timeNow = millis();
-    if (timeNow - lastRippleTime > 50) {
-      ripples.push({
-        x: mouseX, 
-        y: mouseY, 
-        radius: 0, 
-        maxRadius: random(150, 250),
-        strength: random(1, 2)
-      });
-      lastRippleTime = timeNow;
-    }
-  }
+  // Set shader and uniforms
+  shader(theShader);
+  theShader.setUniform('u_resolution', [width, height]);
+  theShader.setUniform('u_time', millis() / 1000);
   
-  // Update and draw ripples
-  for (let i = ripples.length - 1; i >= 0; i--) {
-    let ripple = ripples[i];
-    ripple.radius += 2;
-    ripple.strength *= 0.98;
-    
-    if (ripple.radius > ripple.maxRadius || ripple.strength < 0.01) {
-      ripples.splice(i, 1);
-    }
-  }
-  
-  for (let spiral of spirals) {
-    let points = [];
-    for (let i = 0; i < 150; i++) {
-      let r = spiral.radius * (i / 150);
-      let x = spiral.x + r * cos(spiral.angle + i * spiral.angleStep);
-      let y = spiral.y + r * sin(spiral.angle + i * spiral.angleStep);
-      
-      // Apply ripple effect
-      for (let ripple of ripples) {
-        let d = dist(x, y, ripple.x, ripple.y);
-        if (d < ripple.radius && d > ripple.radius - 10) {
-          let angle = atan2(y - ripple.y, x - ripple.x);
-          x += cos(angle) * ripple.strength * 5;
-          y += sin(angle) * ripple.strength * 5;
-        }
-      }
-      
-      points.push({x, y});
-    }
-    
-    // Draw multiple overlapping lines for pastel effect
-    for (let j = 0; j < 5; j++) {
-      beginShape();
-      noFill();
-      stroke(red(spiral.color), green(spiral.color), blue(spiral.color), 50);
-      strokeWeight(1);
-      for (let point of points) {
-        let offsetX = random(-2, 2);
-        let offsetY = random(-2, 2);
-        curveVertex(point.x + offsetX, point.y + offsetY);
-      }
-      endShape();
-    }
-    
-    spiral.angle += 0.02;
-  }
+  // Draw a full-screen quad
+  // Using beginShape() for maximum control
+  beginShape();
+  vertex(-1, -1, 0, 0, 0);
+  vertex(1, -1, 0, 1, 0);
+  vertex(1, 1, 0, 1, 1);
+  vertex(-1, 1, 0, 0, 1);
+  endShape(CLOSE);
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  createSpirals();
 }
