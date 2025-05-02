@@ -4,10 +4,10 @@
 
 **Production & Post Production // Los Angeles, CA (_2014 - Present_)**
 
-- Managed the logistics of data, facilitating collaboration and ensuring timely completion of tasks
-- Prepared and distributed essential production documents to ensure seamless communication
-- Processed invoices, expense reports, and POs, ensuring adherence to budgets
-- Analyzed existing workflows and improved efficiency across departments
+- Implemented data management systems to prioritize collaboration and consistency
+- Evaluated cross-departmental workflows, implementing targeted improvements
+- Managed financial paperwork processing and monitored departmental budgets
+- Developed key production documents for project guidelines and training
 
 ## Education
 
