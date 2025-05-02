@@ -23,7 +23,7 @@
 
 - Digital Asset Management: Codecs // XML // EDL // CDL // LUT // EXR // OBJ // STL
 
-- Operating Systems: macOS // Windows // Linux – CentOS // Ubuntu Server // Kali
+- Operating Systems: macOS // Windows // Linux 
 
 ## Websites
 
