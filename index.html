@@ -37,7 +37,7 @@
   <!-- Main CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- JSON-LD Schema -->
+  <!-- JSON-L  -->
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -57,7 +57,7 @@
   <!-- p5.js Sketch Container -->
   <div id="sketch-container"></div>
 
-  <!-- Header (Name + Nav) -->
+  <!-- Header -->
   <header id="header">
     <h1 class="site-title">Trevor Neil Williams</h1>
     <nav class="nav-menu">
@@ -80,20 +80,20 @@
     </nav>
   </header>
 
-  <!-- Centered Logo over p5 Sketch -->
+  <!-- Logo -->
   <div id="logo-container">
-    <!-- Replace with your own higher-res logo -->
-    <img
-      src="assets/img/TNW_Logo.png"
-      alt="Trevor Neil Williams Logo"
+    <img 
+      id="logo-img" 
+      src="assets/img/TNW_Logo.png" 
+      alt="Logo" 
+      style="cursor: pointer;"
     />
   </div>
 
-  <!-- About Modal Overlay (hidden by default) -->
+  <!-- About -->
   <div id="about-overlay" class="hidden">
     <div id="about-box">
       <button id="close-about" aria-label="Close About">&times;</button>
-      <!-- Your About paragraphs here -->
       <p class="font-italic">
         From the foothills of Appalachia to the heart of the entertainment industry, my path has been anything but linear. It has been shaped by experiences building puppets, managing movie trailer data, and even a stint testing water safety. Each role has deepened my toolkit, blending creative insight with technical know-how and an unwavering sense of reliability. 
       </p>
@@ -107,7 +107,7 @@
     </div>
   </div>
 
-  <!-- Footer (Black, shorter, icons in center) -->
+  <!-- Footer -->
   <footer id="footer">
     <div class="footer-content">
       <a href="mailto:trevor@trevornwilliams.com" aria-label="Email"
@@ -122,8 +122,9 @@
     </div>
   </footer>
 
-  <!-- Main JS & p5.js Sketch -->
+  <!-- JS -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/sketch.js"></script>
+
 </body>
 </html>
