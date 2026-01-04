@@ -30,7 +30,7 @@ html, body {
   position: fixed;
   right: 0;
   top: 0;
-  width: calc(100% - 40px); /* Adjust for padding */
+  width: calc(100% - 40px); 
   z-index: 10;
 }
 
@@ -61,7 +61,7 @@ html, body {
   color: #444;
 }
 
-/* LOGO (center of screen) */
+/* LOGO */
 #logo-container {
   position: absolute;
   top: 50%;
@@ -72,24 +72,22 @@ html, body {
 }
 
 #logo-container img {
-  max-width: 25vw; /* adjust this to scale your central portrait/logo */
+  max-width: 25vw;
   height: auto;
 }
 
-/* ABOUT MODAL OVERLAY (hidden by default) */
+/* ABOUT MODAL OVERLAY */
 #about-overlay {
   position: fixed;
-  inset: 0; /* top:0; right:0; bottom:0; left:0; */
-  background: rgba(0, 0, 0, 0.4); /* semi-transparent dark overlay */
+  inset: 0; 
+  background: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 999;
 }
 
-/* We'll start it hidden with a utility class .hidden (see below) */
-
-/* The About Box itself */
+/* ABOUT - Box  */
 #about-box {
   background: #fff;
   color: #000;
@@ -101,7 +99,7 @@ html, body {
   position: relative;
 }
 
-/* Close button for the About Box */
+/* ABOUT - Close button*/
 #about-box #close-about {
   position: absolute;
   top: 10px;
@@ -115,21 +113,21 @@ html, body {
 
 /* FOOTER */
 #footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
   background: #000;
+  bottom: 0;
   color: #fff;
-  z-index: 10;
   padding: 8px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 }
 
 .footer-content {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
   gap: 20px;
+  justify-content: center;
 }
 
 .footer-content a {
@@ -148,7 +146,6 @@ html, body {
   display: none !important;
 }
 
-/* RESPONSIVE TWEAKS */
 @media (max-width: 768px) {
   #header {
     flex-direction: column;
@@ -171,7 +168,7 @@ html, body {
   }
 
   #about-box {
-    width: 80vw; /* narrower on mobile */
+    width: 80vw;
     max-height: 70vh;
   }
 }
