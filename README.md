@@ -24,9 +24,3 @@
 - Digital Asset Management: Codecs // XML // EDL // CDL // LUT // EXR // OBJ // STL
 
 - Operating Systems: macOS // Windows // Linux 
-
-## Websites
-
-- [CreateCompile](https://www.createcompile.com)
-- [FilmFrameFocus](https://www.filmframefocus.com)
-- [Mostly Edible](https://www.mostlyedible.com)
