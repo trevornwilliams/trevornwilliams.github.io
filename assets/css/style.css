@@ -76,7 +76,8 @@ html, body {
 
 #logo-container img {
   max-width: 60vw;
-  max-height: 70%; 
+  max-height: 25vw; 
+  height: auto;
   width: auto;
   object-fit: contain;
 }
