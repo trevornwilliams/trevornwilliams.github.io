@@ -5,34 +5,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const logoContainer = document.getElementById('logo-container');
   const logoImg = document.getElementById('logo-img');
 
-  // Open the About box
+  const openAbout = () => {
+    logoContainer.classList.add('hidden');
+    aboutOverlay.classList.remove('hidden');
+  };
+
+  const closeAboutBox = () => {
+    logoContainer.classList.remove('hidden');
+    aboutOverlay.classList.add('hidden');
+  };
+
   aboutLink.addEventListener('click', (e) => {
     e.preventDefault();
-    // Hide the logo
-    logoContainer.style.display = 'none';
-    // Show the about overlay
-    aboutOverlay.classList.remove('hidden');
+    openAbout();
   });
 
- // Toggle about overlay on logo click
   logoImg.addEventListener('click', (e) => {
     e.preventDefault();
     if (aboutOverlay.classList.contains('hidden')) {
-      // Open: hide logo, show overlay
-      logoContainer.style.display = 'none';
-      aboutOverlay.classList.remove('hidden');
+      openAbout();
     } else {
-      // Close: show logo, hide overlay
-      logoContainer.style.display = 'block';
-      aboutOverlay.classList.add('hidden');
+      closeAboutBox();
     }
   });
 
-  // Close the About box
   closeAbout.addEventListener('click', () => {
-    // Show the logo again
-    logoContainer.style.display = 'block';
-    // Hide the about overlay
-    aboutOverlay.classList.add('hidden');
+    closeAboutBox();
+  });
+
+  aboutOverlay.addEventListener('click', (e) => {
+    if (e.target === aboutOverlay) {
+      closeAboutBox();
+    }
   });
 });
